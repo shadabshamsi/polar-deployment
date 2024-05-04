@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: polar-redis
   labels:
-      db: polar-redis
+    db: polar-redis
 spec:
   selector:
     matchLabels:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: polar-redis
-          image: redis:7
+          image: redis:7.0
           resources:
             requests:
               cpu: 100m
@@ -35,9 +35,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-      db: polar-redis
+    db: polar-redis
   ports:
-    - name: redis-port
-      protocol: TCP
+    - protocol: TCP
       port: 6379
       targetPort: 6379
